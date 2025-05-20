@@ -1,12 +1,16 @@
-# React + Vite
+webName: 🏠 RoomMate Connect
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🔗 Live Website
+[🌐 Visit RoomMate Connect](https://your-client-live-link.netlify.app)
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔐 **Authentication**: Secure email/password login and Google login using Firebase.
+- 📝 **Add Listings**: Logged-in users can add roommate listings with lifestyle preferences, rent info, contact, etc.
+- 🔍 **Browse & Filter Listings**: View listings from all users in a clean, responsive table layout.
+- ❤️ **Like System**: Users can like posts to reveal contact details and show interest.
+- ⚙️ **Manage Posts**: Logged-in users can update or delete only their own listings.
+- 💬 **Real-Time Chat (Future Scope)**: Potential roommate interaction.
+- 🌙 **Dark/Light Mode Toggle**: Switch between themes easily.
+- 🔥 **Awesome UI**: Inspired by modern platforms, built with React, Tailwind, and animations (Lottie, React Reveal).
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
