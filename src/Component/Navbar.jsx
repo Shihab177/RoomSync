@@ -15,7 +15,7 @@ const Navbar = () => {
                     <NavLink to="/MyListings">My Listings</NavLink>
                    
                 </div>
-                <div className="w-3/10 text-white flex justify-end items-center">
+                <div className="w-3/10 text-black flex justify-end items-center">
                     <button className='text-[20px] font-semibold py-2 px-4 bg-[#38BDF8] rounded-sm'>Login</button>
                 </div>
             </nav>
