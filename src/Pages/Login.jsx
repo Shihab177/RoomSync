@@ -1,12 +1,13 @@
 import React from "react";
 import { use } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
   const navigate = useNavigate();
   const { loginWithGoogle,loginWithEmailPassword } = use(AuthContext);
+  const location = useLocation()
 
   const handelGoogleLogin = () => {
     loginWithGoogle()
@@ -18,7 +19,7 @@ const Login = () => {
               showConfirmButton: false,
               timer: 1500,
             });
-            navigate("/");
+            navigate(`${location.state ? location.state : "/"}`);
           })
           .catch((error) => {
             const errorMessage = error.message;
@@ -47,7 +48,7 @@ const Login = () => {
               showConfirmButton: false,
               timer: 1500,
             });
-            navigate("/");
+            navigate(`${location.state ? location.state : "/"}`);
         })
         .catch((error)=>{
              const errorMessage = error.message;

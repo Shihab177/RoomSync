@@ -8,6 +8,7 @@ import ErrorPage from "../Component/ErrorPage";
 import AuthLayout from "../AuthLayout/AuthLayout";
 import Registar from "../Pages/Registar";
 import Login from "../Pages/Login";
+import PrivateRouth from "../Provider/PrivateRouth";
 
 export const router = createBrowserRouter([
     {
@@ -21,7 +22,7 @@ export const router = createBrowserRouter([
             },
             {
                 path:"/AddToFindRoommate",
-                Component:AddToFindRoommate
+                element:<PrivateRouth><AddToFindRoommate></AddToFindRoommate></PrivateRouth>
             },
             {
                 path:"/BrowseListing",
@@ -29,7 +30,7 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/MyListings',
-                Component:MyListings
+                element:<PrivateRouth><MyListings></MyListings></PrivateRouth>
             },
         ]
         

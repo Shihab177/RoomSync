@@ -10,6 +10,7 @@ const Navbar = () => {
   console.log(user);
   const handelLogout =()=>{
    logout()
+   .then(()=>{
      Swal.fire({
                   position: "center",
                   icon: "success",
@@ -17,7 +18,12 @@ const Navbar = () => {
                   showConfirmButton: false,
                   timer: 1500,
                 });
-    navigate('/')
+                setTimeout(()=>{
+                  navigate('/')
+                },1600)
+   
+   })
+     
   }
   return (
     <div>
