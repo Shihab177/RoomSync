@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 const Registar = () => {
   const navigate = useNavigate();
-  const { loginWithGoogle,registerUser } = use(AuthContext);
+  const { loginWithGoogle, registerUser, updateUser,setUser } = use(AuthContext);
 
   const handelGoogleLogin = () => {
     loginWithGoogle()
@@ -25,7 +25,7 @@ const Registar = () => {
         Swal.fire({
           position: "center",
           icon: "error",
-          title: { errorMessage },
+          title: errorMessage,
           showConfirmButton: false,
           timer: 1500,
         });
@@ -48,7 +48,6 @@ const Registar = () => {
         position: "center",
         icon: "error",
         title: "Password must have at least one uppercase letter.",
-        
       });
     }
     if (!hasLowercase) {
@@ -56,8 +55,6 @@ const Registar = () => {
         position: "center",
         icon: "error",
         title: "Password must have at least one lowercase letter.",
-       
-       
       });
     }
     if (!isLengthValid) {
@@ -65,30 +62,35 @@ const Registar = () => {
         position: "center",
         icon: "error",
         title: "Password must be at least 6 characters long.",
-        
       });
     }
-    registerUser(email,password)
-    .then(()=>{
-         Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Register Successful",
-          showConfirmButton: false,
-          timer: 1500,
+    registerUser(email, password)
+    .then((result) => {
+      const user=result.user
+      updateUser({ displayName: name, photoURL: photo })
+        .then(() => {
+          setUser({ ...user, displayName: name, photoURL: photo });
+        })
+        .catch(() => {
+          setUser(user);
+        
         });
-        navigate("/");
-    })
-    .catch((error)=>{
-         const errorMessage = error.message;
-        Swal.fire({
+    });
+    navigate("/"),
+      Swal.fire({
         position: "center",
-        icon: "error",
-        title: {errorMessage},
-       
+        icon: "success",
+        title: "Register Successful",
+        showConfirmButton: false,
+        timer: 1500,
+      }).catch((error) => {
+        const errorMessage = error.message;
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: errorMessage,
+        });
       });
-    })
-
   };
   return (
     <div>
