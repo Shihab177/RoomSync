@@ -4,11 +4,13 @@ import Home from "../Pages/Home";
 import AddToFindRoommate from "../Pages/AddToFindRoommate";
 import BrowseListing from "../Pages/BrowseListing";
 import MyListings from "../Pages/MyListings";
+import ErrorPage from "../Component/ErrorPage";
 
 export const router = createBrowserRouter([
     {
         path:'/',
         Component:MainLayout,
+        errorElement: <ErrorPage />,
         children:[
             {
                 index:true,
@@ -26,6 +28,7 @@ export const router = createBrowserRouter([
                 path:'/MyListings',
                 Component:MyListings
             },
+           
            
         ]
     }
