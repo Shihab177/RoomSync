@@ -5,6 +5,9 @@ import AddToFindRoommate from "../Pages/AddToFindRoommate";
 import BrowseListing from "../Pages/BrowseListing";
 import MyListings from "../Pages/MyListings";
 import ErrorPage from "../Component/ErrorPage";
+import AuthLayout from "../AuthLayout/AuthLayout";
+import Registar from "../Pages/Registar";
+import Login from "../Pages/Login";
 
 export const router = createBrowserRouter([
     {
@@ -28,8 +31,23 @@ export const router = createBrowserRouter([
                 path:'/MyListings',
                 Component:MyListings
             },
-           
-           
         ]
-    }
+        
+    },
+    {
+                path:'/auth',
+                Component:AuthLayout,
+                children:[
+                    {
+                        path:'/auth/register',
+                       Component:Registar
+
+                    },
+                    {
+                        path:'/auth/login',
+                        Component:Login
+                    }
+                ]
+
+            }
 ])

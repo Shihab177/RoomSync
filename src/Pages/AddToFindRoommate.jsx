@@ -81,7 +81,7 @@ const AddToFindRoommate = () => {
        <fieldset>
         <label htmlFor="">Email</label>
         <br />
-         <input type='email'  placeholder='email' className="w-full p-2 border rounded bg-gray-100 " />
+         <input type='email'  placeholder='email' required id="email" className="w-full p-2 border rounded bg-gray-100 " />
        </fieldset>
        <fieldset>
         <label htmlFor="">Name</label>
