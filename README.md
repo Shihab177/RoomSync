@@ -1,4 +1,4 @@
-webName: 🏠 RoomMate Connect
+webName: 🏠 RoomSync
 
 ## 🔗 Live Website
 [🌐 Visit RoomMate Connect](https://your-client-live-link.netlify.app)

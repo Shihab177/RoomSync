@@ -6,7 +6,7 @@ const Navbar = () => {
         <div>
             <nav className='flex justify-between items-center px-10 py-4'>
                <div className="w-3/10  flex items-center">
-                 <h1 className='text-2xl font-bold bg-'>RoomMate Connect</h1>
+                 <h1 className='text-2xl font-bold bg-'>RoomSync</h1>
                </div>
                 <div className="flex justify-between text-[20px] font-bold items-center w-4/10">
                     <NavLink to="/">Home</NavLink>
