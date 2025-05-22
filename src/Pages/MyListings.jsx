@@ -2,6 +2,7 @@ import React, { use, useEffect } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const MyListings = () => {
     const navigate = useNavigate()
@@ -18,6 +19,35 @@ const MyListings = () => {
   //
   const handelUpdate = (id)=>{
    navigate(`/update/${id}`)
+  }
+  const handelDelete = (id)=>{
+   Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#3085d6',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      fetch(`http://localhost:7000/roommates/${id}`, {
+        method: 'DELETE'
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.deletedCount > 0) {
+            Swal.fire(
+              'Deleted!',
+              'Your post has been deleted.',
+              'success'
+            );
+            // Optional: Remove the deleted item from state
+            setMyPost(myPost.filter(post => post._id !== id));
+          }
+        });
+    }
+  });
   }
   return (
     <div className="md:container mx-auto bg-gray-100 p-8 my-20">
@@ -51,7 +81,7 @@ const MyListings = () => {
                     <button onClick={()=>handelUpdate(post._id)} className="bg-blue-500 text-white px-3 py-1 rounded">
                       Update
                     </button>
-                    <button className="bg-red-500 text-white px-3 py-1 rounded">
+                    <button onClick={()=>handelDelete(post._id)} className="bg-red-500 text-white px-3 py-1 rounded">
                       Delete
                     </button>
                   </div>
