@@ -190,7 +190,7 @@ const UpdatePage = () => {
             </fieldset>
           </div>
           <input
-            className="bg-[#38BDF8] text-white px-4 py-2 rounded mt-5  w-full"
+            className="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded mt-5  w-full"
             type="submit"
             value="Update"
           />

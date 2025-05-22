@@ -184,7 +184,7 @@ const AddToFindRoommate = () => {
           </fieldset>
         </div>
         <input
-          className="bg-[#38BDF8] text-white px-4 py-2 rounded mt-5  w-full"
+          className="bg-blue-600 text-white rounded hover:bg-blue-700 px-4 py-2 mt-5  w-full"
           type="submit"
           value="Add"
         />
