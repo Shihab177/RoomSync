@@ -9,6 +9,8 @@ import AuthLayout from "../AuthLayout/AuthLayout";
 import Registar from "../Pages/Registar";
 import Login from "../Pages/Login";
 import PrivateRouth from "../Provider/PrivateRouth";
+import UpdatePage from "../Pages/UpdatePage";
+import Loading from "../Component/Loading";
 
 export const router = createBrowserRouter([
     {
@@ -30,8 +32,15 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/MyListings',
+            
                 element:<PrivateRouth><MyListings></MyListings></PrivateRouth>
             },
+            {
+                path:'/update/:id',
+                loader:({params})=> fetch(`http://localhost:7000/roommates/${params.id}`),
+                HydrateFallback:Loading,
+                Component:UpdatePage
+            }
         ]
         
     },

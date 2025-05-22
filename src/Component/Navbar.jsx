@@ -3,11 +3,12 @@ import { NavLink, useNavigate } from "react-router";
 import "./Navbar.css";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import logo from '../assets/r-logo.png'
 const Navbar = () => {
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
   const { user,logout } = use(AuthContext);
-  console.log(user);
+  
   const handelLogout =()=>{
    logout()
    .then(()=>{
@@ -18,6 +19,7 @@ const Navbar = () => {
                   showConfirmButton: false,
                   timer: 1500,
                 });
+               
                 setTimeout(()=>{
                   navigate('/')
                 },1600)
@@ -28,7 +30,9 @@ const Navbar = () => {
   return (
     <div>
       <nav className="flex justify-between items-center px-10 py-4">
-        <div className="w-3/10  flex items-center">
+        <div className="w-3/10 gap-x-6 flex items-center">
+          <img className="w-15 h-17 " src={logo} alt="" />
+
           <h1 className="text-2xl font-bold bg-">RoomSync</h1>
         </div>
         <div className="flex justify-between text-[20px] font-bold items-center w-4/10">
