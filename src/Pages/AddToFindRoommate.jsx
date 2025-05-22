@@ -133,7 +133,7 @@ const AddToFindRoommate = () => {
             <label htmlFor="">Contact Info</label>
             <br />
             <input
-              type="text"
+              type="number"
               name="contact"
               placeholder="Contact Info"
               className="w-full p-2 border rounded"

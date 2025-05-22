@@ -3,35 +3,32 @@ import { NavLink, useNavigate } from "react-router";
 import "./Navbar.css";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
-import logo from '../assets/r-logo.png'
+import logo from "../assets/r-logo.png";
 const Navbar = () => {
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
-  const { user,logout } = use(AuthContext);
-  
-  const handelLogout =()=>{
-   logout()
-   .then(()=>{
-     Swal.fire({
-                  position: "center",
-                  icon: "success",
-                  title: "Logout Successful",
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
-               
-                setTimeout(()=>{
-                  navigate('/')
-                },1600)
-   
-   })
-     
-  }
+  const { user, logout } = use(AuthContext);
+
+  const handelLogout = () => {
+    logout().then(() => {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Logout Successful",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
+      setTimeout(() => {
+        navigate("/");
+      }, 1600);
+    });
+  };
   return (
     <div>
       <nav className="flex justify-between items-center px-10 py-4">
         <div className="w-3/10 gap-x-6 flex items-center">
-          <img className="w-15 h-17 " src={logo} alt="" />
+          <img className="w-15 h-16 rounded-md " src={logo} alt="" />
 
           <h1 className="text-2xl font-bold bg-">RoomSync</h1>
         </div>
@@ -55,20 +52,19 @@ const Navbar = () => {
               <div
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-                className='absolute top-19 right-0 bg-white shadow-lg border rounded-md p-4 z-10 w-48 text-center'
+                className="absolute top-19 right-0 bg-white shadow-lg border rounded-md p-4 z-10 w-48 text-center"
               >
-                <p className='font-semibold mb-2'>{user?.displayName}</p>
-                <p className='font-semibold mb-2'>{user?.email}</p>
-                
-                <button onClick={handelLogout}
-                  className='px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600'
+                <p className="font-semibold mb-2">{user?.displayName}</p>
+                <p className="font-semibold mb-2">{user?.email}</p>
+
+                <button
+                  onClick={handelLogout}
+                  className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
                 >
                   Logout
                 </button>
               </div>
             )}
-
-
           </div>
         ) : (
           <div className="w-3/10 text-black gap-x-6 flex justify-end items-center">

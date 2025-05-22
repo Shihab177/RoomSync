@@ -11,6 +11,7 @@ import Login from "../Pages/Login";
 import PrivateRouth from "../Provider/PrivateRouth";
 import UpdatePage from "../Pages/UpdatePage";
 import Loading from "../Component/Loading";
+import DetailsPage from "../Pages/DetailsPage";
 
 export const router = createBrowserRouter([
     {
@@ -20,6 +21,8 @@ export const router = createBrowserRouter([
         children:[
             {
                 index:true,
+                 loader:()=>fetch('http://localhost:7000/featured-roommates'),
+                 HydrateFallback:Loading,
                 Component: Home 
             },
             {
@@ -28,6 +31,8 @@ export const router = createBrowserRouter([
             },
             {
                 path:"/BrowseListing",
+                loader:()=>fetch('http://localhost:7000/roommates'),
+                HydrateFallback:Loading,
                 Component:BrowseListing
             },
             {
@@ -40,6 +45,13 @@ export const router = createBrowserRouter([
                 loader:({params})=> fetch(`http://localhost:7000/roommates/${params.id}`),
                 HydrateFallback:Loading,
                 Component:UpdatePage
+            },
+            {
+                path:'/details/:id',
+                loader:({params})=> fetch(`http://localhost:7000/roommates/${params.id}`),
+                 HydrateFallback:Loading,
+                element:<PrivateRouth><DetailsPage></DetailsPage></PrivateRouth>
+
             }
         ]
         
