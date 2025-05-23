@@ -1,36 +1,33 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const DetailsPage = () => {
+  const {user}=use(AuthContext)
   const detailsData = useLoaderData();
 
   const [likeCount, setLikeCount] = useState(0);
   const [liked, setLiked] = useState(false);
   const handleLike = () => {
-    if (!liked) {
-      setLikeCount((prev) => prev + 1);
-      setLiked(true);
-
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "You liked this post!",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-    } else {
-      Swal.fire({
-        position: "center",
-        icon: "error",
-        title: "You already liked this.",
-      });
+    setLiked(true)
+    if(user?.email === detailsData.email){
+      return  Swal.fire({
+                  position: "center",
+                  icon: "error",
+                  title:"You cannot like your own post.",
+                 
+                });
     }
+      setLikeCount((prev) => prev + 1);
+     
+    
   };
+  
   return (
-    <div className="md:container flex flex-col items-center mx-auto">
+    <div className="md:container flex flex-col justify-center items-center mx-auto">
       <h1 className="text-[40px] font-bold text-center">Post Details</h1>
-      <div className="md:text-3xl flex flex-col gap-4 mt-4">
+      <div className="md:text-3xl p-3 bg-gray-200 flex flex-col gap-4 mt-4">
         <h2 className="text-2xl font-bold ">Title : {detailsData.title}</h2>
         <p>
           <strong>Location:</strong> {detailsData.location}
@@ -44,11 +41,12 @@ const DetailsPage = () => {
         <p>
           <strong>Lifestyle:</strong> {detailsData.lifestyle}
         </p>
-        <p>
-          <strong>Description:</strong> {detailsData.description}
-        </p>
+        
         <p>
           <strong>Availability:</strong> {detailsData.availability}
+        </p>
+        <p>
+          <strong>Description:</strong> {detailsData.description}
         </p>
         <p>
           <strong>Posted By:</strong> {detailsData.name} ({detailsData.email})

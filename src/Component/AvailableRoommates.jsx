@@ -11,14 +11,15 @@ const AvailableRoommates = ({ featuredPost }) => {
       <div className="text-[20px] bg-gray-200 rounded-md p-5 grid gap-6 grid-cols-3 font-semibold">
         {featuredPost.map((post) => (
           <div className="  rounded-md  bg-white p-3" key={post._id}>
-            <div className="flex text-black flex-col relative gap-4">
+            <div className="flex text-black  flex-col relative gap-4">
+              
               <p>Title : {post.title}</p>
               <p>Name: {post.name}</p>
               <p>Location : {post.location}</p>
               <p>Availability : {post.availability}</p>
               <p>Rent : {post.rent}</p>
               <p>Lifestyle : {post.lifestyle}</p>
-              <p>Description : {post.description}</p>
+             
               
                 <Link
                 to={`/details/${post._id}`}

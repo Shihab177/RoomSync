@@ -3,6 +3,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import Loading from "../Component/Loading";
 
 const MyListings = () => {
     const navigate = useNavigate()
@@ -66,6 +67,7 @@ const MyListings = () => {
           {myPost.length === 0 ? (
             <tr>
               <td colSpan="5" className="text-center text-2xl  py-4 text-black font-bold">
+               
                 No listings found.
               </td>
             </tr>

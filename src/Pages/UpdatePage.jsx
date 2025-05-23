@@ -92,7 +92,7 @@ const UpdatePage = () => {
                 
                 className="w-full p-2 border rounded"
                 required
-                defaultValue=""
+                defaultValue={postData.roomType}
               >
                 <option value="" disabled>
                   Select Room Type (Single, Shared, etc.)
@@ -111,7 +111,7 @@ const UpdatePage = () => {
                 name="lifestyle"
                 className="w-full p-2 border rounded"
                 required
-                defaultValue=""
+                defaultValue={postData.lifestyle}
               >
                 <option value="" disabled>
                   Select Lifestyle Preferences
@@ -154,6 +154,7 @@ const UpdatePage = () => {
                 name="availability"
                 className="w-full p-2 border rounded"
                 required
+                defaultValue={postData.availability}
               >
                 <option value="">Select Availability</option>
                 <option value="Available">Available</option>

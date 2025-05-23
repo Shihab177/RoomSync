@@ -32,7 +32,7 @@ const BrowseListing = () => {
             allPost.map((post) => (
               <tr key={post._id} className="text-center border-b font-semibold">
                 <td className=" py-5 px-2 ">{post.title}</td>
-                <td className=" px-2 py-1">tk: {post.rent}</td>
+                <td className=" px-2 py-1">Tk: {post.rent}</td>
                 <td className=" px-2 py-1">{post.location}</td>
                 <td className=" px-2 py-1">{post.roomType}</td>
                 <td className=" px-2 py-1">
