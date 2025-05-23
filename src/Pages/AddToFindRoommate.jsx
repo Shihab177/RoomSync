@@ -12,7 +12,7 @@ const AddToFindRoommate = () => {
     const newRoommateData = Object.fromEntries(fromData.entries());
 
     //add from data in database
-    fetch("http://localhost:7000/roommates", {
+    fetch("https://roommate-finder-web-server.vercel.app/roommates", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -42,10 +42,10 @@ const AddToFindRoommate = () => {
   };
   return (
     <div className="md:container  mx-auto p-6 bg-white shadow rounded-lg my-10">
-      <h2 className="text-2xl font-bold mb-6 text-center">
+      <h2 className="text-2xl font-bold mb-6 text-center text-black">
         Add Roommate Listing
       </h2>
-      <form onSubmit={handelAdd} className="space-y-4">
+      <form onSubmit={handelAdd} className="space-y-4 text-black">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <fieldset>
             <label className="text-black" htmlFor="">

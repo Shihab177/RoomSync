@@ -1,5 +1,7 @@
 import React from "react";
-
+import fb from '../assets/fb (2).png';
+import lin from '../assets/in (2).png';
+import tube from '../assets/tube.png'
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-300 py-8 mt-auto">
@@ -29,10 +31,11 @@ const Footer = () => {
         {/* Social Media Links */}
         <div className="md:w-1/3">
           <h3 className="text-white text-lg font-semibold mb-3">Follow Us</h3>
-          <div className="space-x-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">Facebook</a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">Twitter</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500">Instagram</a>
+          <div className="space-x-4 flex">
+             <a href="https://www.facebook.com/sk.shihab.73594" target="_blank"><img src={fb} alt="" /></a>
+		 <a href="http://www.youtube.com/@ultracoder-j3i" target="_blank"><img src={tube} alt="" /></a>
+		 <a href="https://github.com/Shihab177" target="_blank"><img src={lin} alt="" /></a>
+		 
           </div>
         </div>
       </div>

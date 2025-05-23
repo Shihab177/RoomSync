@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
         children:[
             {
                 index:true,
-                 loader:()=>fetch('http://localhost:7000/featured-roommates'),
+                 loader:()=>fetch('https://roommate-finder-web-server.vercel.app/featured-roommates'),
                  HydrateFallback:Loading,
                 Component: Home 
             },
@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
             },
             {
                 path:"/BrowseListing",
-                loader:()=>fetch('http://localhost:7000/roommates'),
+                loader:()=>fetch('https://roommate-finder-web-server.vercel.app/roommates'),
                 HydrateFallback:Loading,
                 Component:BrowseListing
             },
@@ -42,13 +42,13 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/update/:id',
-                loader:({params})=> fetch(`http://localhost:7000/roommates/${params.id}`),
+                loader:({params})=> fetch(`https://roommate-finder-web-server.vercel.app/roommates/${params.id}`),
                 HydrateFallback:Loading,
                 Component:UpdatePage
             },
             {
                 path:'/details/:id',
-                loader:({params})=> fetch(`http://localhost:7000/roommates/${params.id}`),
+                loader:({params})=> fetch(`https://roommate-finder-web-server.vercel.app/roommates/${params.id}`),
                  HydrateFallback:Loading,
                 element:<PrivateRouth><DetailsPage></DetailsPage></PrivateRouth>
 

@@ -12,7 +12,7 @@ const UpdatePage = () => {
     const fromData = new FormData(from);
     const updatedData = Object.fromEntries(fromData.entries());
 
-    fetch(`http://localhost:7000/roommates/${postData._id}`, {
+    fetch(`https://roommate-finder-web-server.vercel.app/roommates/${postData._id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +45,7 @@ const UpdatePage = () => {
     <div className="md:container mx-auto my-10">
       <h1 className="my-5 font-bold text-2xl text-center">Update your Data</h1>
       <div className="md:container  mx-auto p-6 bg-white shadow rounded-lg ">
-        <form onSubmit={handelUpdate} className="space-y-4">
+        <form onSubmit={handelUpdate} className="space-y-4 text-black">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <fieldset>
               <label className="text-black" htmlFor="">

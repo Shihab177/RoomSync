@@ -31,7 +31,7 @@ const DetailsPage = () => {
     <div className="md:container flex flex-col items-center mx-auto">
       <h1 className="text-[40px] font-bold text-center">Post Details</h1>
       <div className="md:text-3xl flex flex-col gap-4 mt-4">
-        <h2 className="text-2xl font-bold ">{detailsData.title}</h2>
+        <h2 className="text-2xl font-bold ">Title : {detailsData.title}</h2>
         <p>
           <strong>Location:</strong> {detailsData.location}
         </p>
@@ -62,7 +62,7 @@ const DetailsPage = () => {
             onClick={handleLike}
             className="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded"
           >
-            ❤️ Like
+             Like
           </button>
 
           {liked && (

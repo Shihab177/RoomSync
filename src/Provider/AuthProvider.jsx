@@ -41,6 +41,7 @@ const AuthProvider = ({children}) => {
             unSubscribe()
         }
     },[])
+    
    const AuthData = {
      loginWithGoogle,
      registerUser,
@@ -50,7 +51,8 @@ const AuthProvider = ({children}) => {
      logout,
      updateUser,
      loading,
-     setLoading
+     setLoading,
+    
    }
     return <AuthContext value={AuthData}>
           {children}

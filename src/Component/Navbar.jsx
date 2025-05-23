@@ -1,10 +1,12 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router";
 import "./Navbar.css";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import logo from "../assets/r-logo.png";
+import Toggle from "./Toggle/Toggle";
 const Navbar = () => {
+  const [isDark,setDark]=useState(false)
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
   const { user, logout } = use(AuthContext);
@@ -24,6 +26,16 @@ const Navbar = () => {
       }, 1600);
     });
   };
+  //
+  useEffect(() => {
+  const root = document.documentElement;
+
+  if (isDark) {
+    root.setAttribute("data-theme", "dark");
+  } else {
+    root.removeAttribute("data-theme");
+  }
+}, [isDark]);
   return (
     <div>
       <nav className="flex justify-between items-center px-10 py-4">
@@ -31,6 +43,7 @@ const Navbar = () => {
           <img className="w-15 h-16 rounded-md " src={logo} alt="" />
 
           <h1 className="text-2xl font-bold bg-">RoomSync</h1>
+          
         </div>
         <div className="flex justify-between text-[20px] font-bold items-center w-4/10">
           <NavLink to="/">Home</NavLink>
@@ -38,8 +51,13 @@ const Navbar = () => {
           <NavLink to="/BrowseListing">Browse Listing</NavLink>
           <NavLink to="/MyListings">My Listings</NavLink>
         </div>
+        <div className="w-1/10 flex justify-end">
+           <div className="bg-blue-400 w-16 h-16 p-3 rounded-[50%] ">
+             <Toggle isCecked={isDark} handelChange={()=>setDark(!isDark)}></Toggle>
+           </div>
+         </div>
         {user ? (
-          <div className="w-3/10 flex justify-end items-center">
+          <div className="w-1/10 flex justify-end items-center">
             <img
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
@@ -67,7 +85,8 @@ const Navbar = () => {
             )}
           </div>
         ) : (
-          <div className="w-3/10 text-black gap-x-6 flex justify-end items-center">
+          <div className="w-2/10 text-black gap-x-6 flex justify-end items-center">
+
             <button
               onClick={() => navigate("/auth/login")}
               className="text-[20px] font-semibold py-2 px-4 bg-blue-600 text-white hover:bg-blue-700 rounded-sm"
@@ -82,6 +101,7 @@ const Navbar = () => {
             </button>
           </div>
         )}
+         
       </nav>
     </div>
   );

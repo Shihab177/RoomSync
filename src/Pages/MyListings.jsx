@@ -9,7 +9,7 @@ const MyListings = () => {
   const { user } = use(AuthContext);
   const [myPost,setMyPost]=useState([])
   useEffect(() => {
-    fetch(`http://localhost:7000/roommates?email=${user.email}`)
+    fetch(`https://roommate-finder-web-server.vercel.app/roommates?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
       
@@ -31,7 +31,7 @@ const MyListings = () => {
     confirmButtonText: 'Yes, delete it!'
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`http://localhost:7000/roommates/${id}`, {
+      fetch(`https://roommate-finder-web-server.vercel.app/roommates/${id}`, {
         method: 'DELETE'
       })
         .then(res => res.json())
@@ -51,8 +51,8 @@ const MyListings = () => {
   }
   return (
     <div className="md:container mx-auto bg-gray-100 p-8 my-20">
-      <h1 className="text-center text-[40px] text-bold">My Roommate Posts</h1>
-      <table className="w-full mt-5">
+      <h1 className="text-center text-[40px] text-bold text-black">My Roommate Posts</h1>
+      <table className="w-full mt-5 text-black">
         <thead>
           <tr className="bg-gray-200  border-b">
             <th className="py-8 px-2 ">Title</th>
