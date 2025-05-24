@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import Loading from "../Component/Loading";
+import SmallLoading from "../Component/SmallLoading";
 
 const MyListings = () => {
     const navigate = useNavigate()
@@ -51,7 +52,7 @@ const MyListings = () => {
   });
   }
   return (
-    <div className="md:container mx-auto bg-gray-100 p-8 my-20">
+    <div className="md:container mx-auto bg-gray-100 rounded-md p-8 my-20">
       <h1 className="text-center text-[40px] text-bold text-black">My Roommate Posts</h1>
       <table className="w-full mt-5 text-black">
         <thead>
@@ -68,7 +69,7 @@ const MyListings = () => {
             <tr>
               <td colSpan="5" className="text-center text-2xl  py-4 text-black font-bold">
                
-                No listings found.
+               <SmallLoading></SmallLoading>
               </td>
             </tr>
           ) : (

@@ -6,11 +6,13 @@ import { AuthContext } from "../Provider/AuthProvider";
 const DetailsPage = () => {
   const {user}=use(AuthContext)
   const detailsData = useLoaderData();
+  //console.log(detailsData)
 
-  const [likeCount, setLikeCount] = useState(0);
+  const [likeCount, setLikeCount] = useState(detailsData.likeCount || 0);
   const [liked, setLiked] = useState(false);
+  //console.log(likeCount)
   const handleLike = () => {
-    setLiked(true)
+   
     if(user?.email === detailsData.email){
       return  Swal.fire({
                   position: "center",
@@ -19,15 +21,24 @@ const DetailsPage = () => {
                  
                 });
     }
-      setLikeCount((prev) => prev + 1);
+   
      
+     fetch(`https://roommate-finder-web-server.vercel.app/roommates/${detailsData._id}/like`,{
+      method: "POST",
+     })
+     .then(res=>res.json())
+     .then(data=>{
+      
+        setLiked(true)
+       setLikeCount(data.likeCount);
+     })
     
   };
   
   return (
-    <div className="md:container flex flex-col justify-center items-center mx-auto">
+    <div className="md:container pb-10  flex flex-col justify-center items-center mx-auto">
       <h1 className="text-[40px] font-bold text-center">Post Details</h1>
-      <div className="md:text-3xl p-3 bg-gray-200 flex flex-col gap-4 mt-4">
+      <div className="md:text-3xl p-3 bg-gray-200 rounded-sm shadow  flex flex-col gap-4 mt-4">
         <h2 className="text-2xl font-bold ">Title : {detailsData.title}</h2>
         <p>
           <strong>Location:</strong> {detailsData.location}
@@ -58,7 +69,7 @@ const DetailsPage = () => {
           </h3>
           <button
             onClick={handleLike}
-            className="bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded"
+            className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded"
           >
              Like
           </button>

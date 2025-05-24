@@ -8,10 +8,10 @@ const BrowseListing = () => {
      navigate(`/details/${id}`)
     }
     return (
-        <div className='md:container mx-auto'>
+        <div className='md:container mx-auto '>
             <h1 className='text-[40px] font-bold text-center'>Roommate Finder All Posts</h1>
-            <div className="class bg-gray-100">
-                 <table className="w-full mt-5 text-black">
+            <div className="class bg-gray-100 mb-7 rounded-md shadow">
+                 <table className="w-full mt-5  text-black">
         <thead>
           <tr className="bg-gray-200  border-b">
             <th className="py-8 px-2 ">Title</th>

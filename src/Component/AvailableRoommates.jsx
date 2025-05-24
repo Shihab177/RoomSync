@@ -1,11 +1,18 @@
 import React from "react";
 import { Link } from "react-router";
-
+import { useTypewriter, Cursor } from 'react-simple-typewriter'
 const AvailableRoommates = ({ featuredPost }) => {
+  const [typeEffect] = useTypewriter({
+  words: ['Roommates ', 'Post'],
+  loop: {}, 
+  typeSpeed: 100,
+  deleteSpeed: 40
+})
   return (
     <div className="md:container mx-auto my-20">
       <h1 className="text-[40px] font-bold   text-center">
-        Available Roommates Post
+        Available
+        <span style={{marginLeft:'5px'}}>{typeEffect}</span>
       </h1>
       <p className="mb-6 text-[20px] text-center font-semibold"> Find Your Roommate</p>
       <div className="text-[20px] bg-gray-200 rounded-md p-5 grid gap-6 grid-cols-3 font-semibold">

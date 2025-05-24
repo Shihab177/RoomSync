@@ -5,6 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import logo from "../assets/r-logo.png";
 import Toggle from "./Toggle/Toggle";
+
 const Navbar = () => {
   const [isDark,setDark]=useState(false)
   const [isHovered, setIsHovered] = useState(false);
@@ -20,10 +21,8 @@ const Navbar = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-
-      setTimeout(() => {
-        navigate("/");
-      }, 1600);
+      navigate("/");
+      
     });
   };
   //
@@ -41,9 +40,8 @@ const Navbar = () => {
       <nav className="flex justify-between items-center px-10 py-4">
         <div className="w-3/10 gap-x-6 flex items-center">
           <img className="w-15 h-16 rounded-md " src={logo} alt="" />
-
-          <h1 className="text-2xl font-bold bg-">RoomSync</h1>
-          
+             
+              <h1 className="text-[40px] font-bold">Roomsyns</h1>
         </div>
         <div className="flex justify-between text-[20px] font-bold items-center w-4/10">
           <NavLink to="/">Home</NavLink>
