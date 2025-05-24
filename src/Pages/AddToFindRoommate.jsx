@@ -41,9 +41,9 @@ const AddToFindRoommate = () => {
       });
   };
   return (
-    <div className="md:container  mx-auto p-6 bg-gray-100 shadow rounded-lg my-10">
-      <h2 className="text-2xl font-bold mb-6 text-center text-black">
-        Add Roommate Listing
+    <div className="md:container  mx-auto p-6 bg-gray-100 shadow rounded-lg  mb-10">
+      <h2 className="text-2xl font-bold  mb-6 text-center text-black">
+        Create a Roommate Post
       </h2>
       <form onSubmit={handelAdd} className="space-y-4 text-black">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">

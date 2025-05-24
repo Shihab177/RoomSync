@@ -5,8 +5,10 @@ import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import logo from "../assets/r-logo.png";
 import Toggle from "./Toggle/Toggle";
+import { CiMenuFries } from "react-icons/ci";
 
 const Navbar = () => {
+  const [openMenu,setOpenMenu]=useState(false)
   const [isDark,setDark]=useState(false)
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
@@ -35,27 +37,34 @@ const Navbar = () => {
     root.removeAttribute("data-theme");
   }
 }, [isDark]);
+
+const handelMenu = ()=>{
+ setOpenMenu(!openMenu)
+}
   return (
     <div>
-      <nav className="flex justify-between items-center px-10 py-4">
-        <div className="w-3/10 gap-x-6 flex items-center">
-          <img className="w-15 h-16 rounded-md " src={logo} alt="" />
-             
-              <h1 className="text-[40px] font-bold">Roomsyns</h1>
+      <nav className="flex justify-between items-center px-4 md:px-10 py-4">
+        <div className="md:w-3/10 gap-x-6 flex items-center">
+          <img className="w-15 h-16 rounded-md md:flex hidden " src={logo} alt="" />
+               <CiMenuFries onClick={handelMenu} size={33} className="md:hidden"/>
+              <h1 className="md:text-[40px] text-[18px] font-bold">Room Syncs</h1>
         </div>
-        <div className="flex justify-between text-[20px] font-bold items-center w-4/10">
+        <div className="justify-between hidden md:flex text-[20px] font-bold items-center w-4/10">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/AddToFindRoommate">Add To Find Roommate</NavLink>
           <NavLink to="/BrowseListing">Browse Listing</NavLink>
           <NavLink to="/MyListings">My Listings</NavLink>
         </div>
-        <div className="w-1/10 flex justify-end">
-           <div className="bg-blue-400 w-16 h-16 p-3 rounded-[50%] ">
+        <div className="md:w-1/10 flex justify-end">
+           <div className="bg-blue-400 md:w-16 md:h-16 md:flex hidden items-center justify-center p-3 rounded-[50%] ">
+             <Toggle isCecked={isDark} handelChange={()=>setDark(!isDark)}></Toggle>
+           </div>
+            <div className="md:hidden">
              <Toggle isCecked={isDark} handelChange={()=>setDark(!isDark)}></Toggle>
            </div>
          </div>
         {user ? (
-          <div className="w-1/10 flex justify-end items-center">
+          <div className="md:w-1/10 flex justify-end items-center">
             <img
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
@@ -83,7 +92,7 @@ const Navbar = () => {
             )}
           </div>
         ) : (
-          <div className="w-2/10 text-black gap-x-6 flex justify-end items-center">
+          <div className="md:w-2/10 text-black gap-x-6 flex justify-end items-center">
 
             <button
               onClick={() => navigate("/auth/login")}
@@ -101,6 +110,19 @@ const Navbar = () => {
         )}
          
       </nav>
+      {
+        openMenu && <div className="absolute top-20 rounded-sm w-60 h-100 bg-gray-300 z-40">
+          <div className="text-center">
+            <button onClick={()=>setOpenMenu(false)} className="text-red-400 text-4xl bg-white px-4 py-2 mt-4 rounded-2xl text-center">x</button>
+          </div>
+           <div className="flex flex-col gap-4 text-[20px]  font-bold ">
+          <NavLink onClick={()=>setOpenMenu(false)} to="/">Home</NavLink>
+          <NavLink onClick={()=>setOpenMenu(false)} to="/AddToFindRoommate">Add To Find Roommate</NavLink>
+          <NavLink onClick={()=>setOpenMenu(false)} to="/BrowseListing">Browse Listing</NavLink>
+          <NavLink onClick={()=>setOpenMenu(false)} to="/MyListings">My Listings</NavLink>
+        </div>
+        </div>
+      }
     </div>
   );
 };

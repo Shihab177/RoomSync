@@ -52,9 +52,10 @@ const MyListings = () => {
   });
   }
   return (
-    <div className="md:container mx-auto bg-gray-100 rounded-md p-8 my-20">
-      <h1 className="text-center text-[40px] text-bold text-black">My Roommate Posts</h1>
-      <table className="w-full mt-5 text-black">
+    <div className="md:container mx-auto  rounded-md md:p-8 md:my-20">
+      <h1 className="text-center text-[40px] text-bold text-black">My Posts</h1>
+      <div className="overflow-x-auto bg-gray-100">
+        <table className="w-full min-w-[700px] mt-5 text-black">
         <thead>
           <tr className="bg-gray-200  border-b">
             <th className="py-8 px-2 ">Title</th>
@@ -94,6 +95,7 @@ const MyListings = () => {
           )}
         </tbody>
       </table>
+      </div>
     </div>
   );
 };

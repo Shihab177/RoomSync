@@ -42,9 +42,9 @@ const UpdatePage = () => {
       });
   };
   return (
-    <div className="md:container mx-auto my-10">
-      <h1 className="my-5 font-bold text-2xl text-center">Update your Data</h1>
-      <div className="md:container  mx-auto p-6 bg-white shadow rounded-lg ">
+    <div className="md:container mx-auto  md:my-10">
+      <h1 className="mb-5 md:my-5 font-bold text-2xl text-center">Update your Data</h1>
+      <div className="md:container  mx-auto p-6 bg-gray-100 shadow rounded-lg ">
         <form onSubmit={handelUpdate} className="space-y-4 text-black">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <fieldset>

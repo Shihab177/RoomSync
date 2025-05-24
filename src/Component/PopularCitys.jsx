@@ -11,7 +11,7 @@ import nine from '../assets/nine.jpg'
 import ten from '../assets/ten.webp'
 const PopularCitys = () => {
     return (
-        <div className='my-20 md:container mx-auto'>
+        <div className='md:my-20 my-10 md:container mx-auto'>
             <h1 className='text-[40px] font-bold text-center'>View rooms in popular cities</h1>
             <div className="grid grid-cols-3 md:grid-cols-5 gap-5 mt-7">
               <div className="relative group md:h-[210px] overflow-hidden">
@@ -20,7 +20,7 @@ const PopularCitys = () => {
                     <p className='text-[24px] font-semibold text-white'>Melbourne</p>
                 </div>
               </div>
-              <div className="relative group md:h-[210px] overflow-hidden">
+              <div className="relative group md:h-[210px] h-[74px] overflow-hidden">
                 <img className='rounded-sm w-full h-full' src={two} alt="" />
                 <div className="absolute group-hover:bottom-0 bg-black text-center w-full py-2">
                     <p className='text-[24px] font-semibold text-white'>Singapore</p>

@@ -31,7 +31,7 @@ const Banner = () => {
            <div className="flex  bg-yellow-50  items-center">
             <div className="w-2/6 text-left flex items-center justify-center ">
                  <span className="md:h-50 h-35 px-3 items-center ">
-                   <h1 className='md:text-[37px] text-[16px] text-black font-semibold'> Find a Roommate, Make <br />a New Friend</h1>
+                   <h1 className='md:text-[37px] text-[14px] text-black font-semibold'> Find a Roommate, Make <br />a New Friend</h1>
                    <p className='mt-2 md:mt-4 md:text-[20px] text-[9px] text-black'>Room with someone who matches your vibe — and maybe <br /> becomes your best bud</p>
                    <button className='px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 mt-4 md:text-2xl text-[12px] rounded-md font-semibold'>Find Roommate </button>
                  </span>

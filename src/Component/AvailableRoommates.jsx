@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 import { useTypewriter, Cursor } from 'react-simple-typewriter'
-import { Zoom } from "react-awesome-reveal";
+
 const AvailableRoommates = ({ featuredPost }) => {
   const [typeEffect] = useTypewriter({
   words: ['Roommates ', 'Post'],
@@ -10,15 +10,15 @@ const AvailableRoommates = ({ featuredPost }) => {
   deleteSpeed: 40
 })
   return (
-    <Zoom>
-    <div className="md:container mx-auto my-20">
-      <h1 className="text-[40px] font-bold   text-center">
+    
+    <div className="md:container mx-auto my-10 md:my-20">
+      <h1 className="text-[19px] md:text-[40px] font-bold   text-center">
         Available
         <span style={{marginLeft:'5px'}}>{typeEffect}</span>
       </h1>
-      <p className="mb-6 text-[20px] text-center font-semibold"> Find Your Roommate</p>
+      <p className="mb-6 text-[14px] md:text-[20px] text-center font-semibold"> Find Your Roommate</p>
      
-      <div className="text-[20px] bg-gray-200 rounded-md p-5 grid gap-6 grid-cols-3 font-semibold">
+      <div className="text-[20px] bg-gray-200 rounded-md p-5 grid gap-6 grid-cols-1 md:grid-cols-3 font-semibold">
         {featuredPost.map((post) => (
           <div className="  rounded-md  bg-white p-3" key={post._id}>
             <div className="flex text-black  flex-col relative gap-4">
@@ -43,7 +43,7 @@ const AvailableRoommates = ({ featuredPost }) => {
         ))}
       </div>
     </div>
-    </Zoom>
+    
   );
 };
 
