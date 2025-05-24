@@ -18,7 +18,7 @@ const AvailableRoommates = ({ featuredPost }) => {
       </h1>
       <p className="mb-6 text-[14px] md:text-[20px] text-center font-semibold"> Find Your Roommate</p>
      
-      <div className="text-[20px] bg-gray-200 rounded-md p-5 grid gap-6 grid-cols-1 md:grid-cols-3 font-semibold">
+      <div className="text-[20px] bg-gray-200 rounded-md p-5 grid gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 font-semibold">
         {featuredPost.map((post) => (
           <div className="  rounded-md  bg-white p-3" key={post._id}>
             <div className="flex text-black  flex-col relative gap-4">

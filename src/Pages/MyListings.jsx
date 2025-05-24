@@ -53,7 +53,7 @@ const MyListings = () => {
   }
   return (
     <div className="md:container mx-auto  rounded-md md:p-8 md:my-20">
-      <h1 className="text-center text-[40px] text-bold text-black">My Posts</h1>
+      <h1 className="text-center text-[40px] text-bold">My Posts</h1>
       <div className="overflow-x-auto bg-gray-100">
         <table className="w-full min-w-[700px] mt-5 text-black">
         <thead>

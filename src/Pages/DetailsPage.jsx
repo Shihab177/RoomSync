@@ -38,7 +38,10 @@ const DetailsPage = () => {
   return (
     <div className="md:container pb-10  flex flex-col justify-center items-center mx-auto">
       <h1 className="text-[40px] font-bold text-center">Post Details</h1>
-      <div className="md:text-3xl p-3 bg-gray-200 rounded-sm shadow  flex flex-col gap-4 mt-4">
+      <div className="md:text-3xl p-3 bg-gray-200 text-black rounded-sm shadow  flex flex-col gap-4 mt-4">
+        <h3 className="text-[24px] font-semibold mb-2">
+            {likeCount} people interested in
+          </h3>
         <h2 className="text-2xl font-bold ">Title : {detailsData.title}</h2>
         <p>
           <strong>Location:</strong> {detailsData.location}
@@ -64,9 +67,7 @@ const DetailsPage = () => {
         </p>
 
         <div className="mt-6">
-          <h3 className="text-lg font-semibold mb-2">
-            {likeCount} people Like
-          </h3>
+          
           <button
             onClick={handleLike}
             className="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded"

@@ -11,7 +11,7 @@ const BrowseListing = () => {
         <div className='md:container mx-auto '>
             <h1 className='md:text-[40px] text-[19px] mb-5 font-bold text-center'>Roommate Finder All Posts</h1>
             <div className="class bg-gray-100 mb-7 rounded-md shadow overflow-x-auto">
-                 <table className="w-full min-w-[700px] md:text-[17px] text-[14px]  text-black ">
+                 <table className="w-full min-w-[700px] md:text-[14px] lg:text-[17px] text-[14px]  text-black ">
         <thead>
           <tr className="bg-gray-200  border-b">
             <th className="py-8 px-2 ">Title</th>
