@@ -70,7 +70,7 @@ const MyListings = () => {
             <tr>
               <td colSpan="5" className="text-center text-2xl  py-4 text-black font-bold">
                
-               <SmallLoading></SmallLoading>
+              No Listings Found
               </td>
             </tr>
           ) : (
