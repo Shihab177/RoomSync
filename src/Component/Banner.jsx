@@ -7,13 +7,15 @@ import 'swiper/css';
 import slider1 from '../assets/slider-1.png'
 import slider2 from '../assets/slider-2.png'
 import slider3 from '../assets/slider-3.png'
+import { Fade } from "react-awesome-reveal";
 const Banner = () => {
     return (
         <div className='md:container md:mx-auto md:h-[450px] border border-gray-200  h-50 bg-[#EBF0F5] '>
            
            <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
         <SwiperSlide className=''>
-           <div className='flex bg-[#FEFAD9] items-center'>
+           <Fade>
+            <div className='flex bg-[#FEFAD9] items-center'>
             <div className="text-left flex items-center justify-center w-2/6">
              <span className='md:h-50 h-35 px-3 items-center '>
              <h1 className='md:text-[37px] text-black text-[16px] font-semibold'>Find Your Perfect <br />Roommate Today </h1>
@@ -26,6 +28,7 @@ const Banner = () => {
             </div>
            
            </div>
+           </Fade>
         </SwiperSlide>
         <SwiperSlide className=' '>
            <div className="flex  bg-yellow-50  items-center">

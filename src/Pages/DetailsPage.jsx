@@ -24,11 +24,11 @@ const DetailsPage = () => {
    
      
      fetch(`https://roommate-finder-web-server.vercel.app/roommates/${detailsData._id}/like`,{
-      method: "POST",
+      method: "PATCH",
      })
      .then(res=>res.json())
      .then(data=>{
-      
+      console.log(data)
         setLiked(true)
        setLikeCount(data.likeCount);
      })
@@ -65,7 +65,7 @@ const DetailsPage = () => {
 
         <div className="mt-6">
           <h3 className="text-lg font-semibold mb-2">
-            {likeCount} people interested in
+            {likeCount} people Like
           </h3>
           <button
             onClick={handleLike}

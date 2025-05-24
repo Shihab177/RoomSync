@@ -41,7 +41,7 @@ const AddToFindRoommate = () => {
       });
   };
   return (
-    <div className="md:container  mx-auto p-6 bg-gray-100 shadow rounded-lg  mb-10">
+    <div className="md:container  mx-auto p-6 bg-gray-100 shadow rounded-lg md:mt-10  mb-10">
       <h2 className="text-2xl font-bold  mb-6 text-center text-black">
         Create a Roommate Post
       </h2>
