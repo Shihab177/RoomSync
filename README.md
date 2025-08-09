@@ -48,6 +48,6 @@ It also allows browsing and filtering through all listings, liking posts, and ma
    ```bash
    git clone https://github.com/Shihab177/RoomSync.git
    cd roommate-finder-cliant
-   npm install
+   npm run dev
 
 
